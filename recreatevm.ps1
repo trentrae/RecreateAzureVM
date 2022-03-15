@@ -2,12 +2,12 @@
     $resourceGroup = "RG Name"
     $vmName = "VM Name"
 
-# Get the details of the VM to be moved to the Availability Set
+# Get the details of the VM
     $originalVM = Get-AzVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName
 
-# Stop the VM to take snapshot
+# Stop the VM 
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 
 # Remove the original VM
