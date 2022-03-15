@@ -7,6 +7,9 @@
        -ResourceGroupName $resourceGroup `
        -Name $vmName
 
+# Get VM Tags
+$tags = (Get-AzResource -ResourceGroupName $resourceGroup -Name myVM).Tags
+
 # Stop the VM 
 Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 
@@ -17,7 +20,7 @@ Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     $newVM = New-AzVMConfig `
        -VMName $originalVM.Name `
        -VMSize $originalVM.HardwareProfile.VmSize `
-       #-AvailabilitySetId $availSet.Id
+       -Tags $tags
  
 # For a Linux VM, change the last parameter from -Windows to -Linux
     Set-AzVMOSDisk `
