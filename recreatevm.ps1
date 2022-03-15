@@ -1,7 +1,6 @@
 # Set variables
-    $resourceGroup = "gov-test-avs_group"
-    $vmName = "gov-test-avs2"
-    #$newAvailSetName = "myAvailabilitySet"
+    $resourceGroup = "RG Name"
+    $vmName = "VM Name"
 
 # Get the details of the VM to be moved to the Availability Set
     $originalVM = Get-AzVM `
